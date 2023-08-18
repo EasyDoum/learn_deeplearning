@@ -33,11 +33,11 @@ class NeuralNetwork:
 
         self.lr = lr
 
-        # 输入-->隐藏层权重矩阵，随机正态分布
+        # 输入-->隐藏层权重矩阵，随机正态分布，均值为0，方差为隐藏层节点数量，形状为H*I
         self.w_ih = np.random.normal(
             0.0, pow(self.hnodes, -0.5), (self.hnodes, self.inodes)
         )
-        # 隐藏-->输出层权重矩阵，随机正态分布
+        # 隐藏-->输出层权重矩阵，随机正态分布，均值为0，方差为输出层节点数量，形状为O*H
         self.w_ho = np.random.normal(
             0.0, pow(self.onodes, -0.5), (self.onodes, self.hnodes)
         )
@@ -138,9 +138,9 @@ if __name__ == "__main__":
     lr = 0.3
     n = NeuralNetwork(i_nodes, h_nodes, o_nodes, lr)
     data = [1.5, 3.6, 4.8, -1.6, 20, -5.9]
-    target_data = [3.5, 6.3, -1.7]
+    target_data = [0.7, 0.4, 0.9]
     # res1 = n.query(data)
-    i = 801
+    i = 1000
     while i > 0:
         res2 = n.learn(data, target_data)
         i -= 1
