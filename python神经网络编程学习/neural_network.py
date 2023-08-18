@@ -89,10 +89,10 @@ class NeuralNetwork:
         """
 
         input = np.array(input_list, ndmin=2).T
-        print(f"输入节点数据：\n{input}")
+        # print(f"输入节点数据：\n{input}")
 
         h_output = self.get_h_output(input)
-        print(f"隐藏层输出：\n{h_output}")
+        # print(f"隐藏层输出：\n{h_output}")
 
         output = self.get_output(h_output)
         print(f"输出节点数据：\n{output}")
